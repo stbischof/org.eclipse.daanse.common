@@ -14,6 +14,7 @@
 package org.eclipse.daanse.common.io.fs.watcher.watchservice;
 
 import java.io.IOException;
+import java.nio.file.ClosedWatchServiceException;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.FileVisitResult;
@@ -33,12 +34,17 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 import org.eclipse.daanse.common.io.fs.watcher.api.EventKind;
 import org.eclipse.daanse.common.io.fs.watcher.api.FileSystemWatcherListener;
 import org.eclipse.daanse.common.io.fs.watcher.api.FileSystemWatcherWhiteboardConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class FileWatcherRunable implements Runnable {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(FileWatcherRunable.class);
 
     private WatchService watcheService;
     private final Map<WatchKey, Path> watchKeys = new ConcurrentHashMap<>();
@@ -111,8 +117,10 @@ class FileWatcherRunable implements Runnable {
 
     private void registerPath(Path path) throws IOException {
 
-        List<Path> currentPaths = Files.list(path).toList();
-        listener.handleInitialPaths(currentPaths);
+        try (Stream<Path> stream = Files.list(path)) {
+            List<Path> currentPaths = stream.toList();
+            listener.handleInitialPaths(currentPaths);
+        }
 
         WatchKey watchKey = path.register(watcheService, kinds);
         synchronized (watchKeys) {
@@ -150,59 +158,74 @@ class FileWatcherRunable implements Runnable {
     @Override
     public void run() {
 
+        try {
+            doPollsUntilStop();
+        } catch (Exception e) {
+            LOGGER.error("Error while tracking Filechanges", e);
+        }
+
+        clear();
+
+    }
+
+    private void doPollsUntilStop() throws ClosedWatchServiceException {
         while (!stop) {
-            WatchKey key = null;
-            try {
-                key = watcheService.poll();// not take so do not block
-            } catch (Exception e) {
-                break;
-            }
+            WatchKey key = watcheService.poll();// not take so do not block
 
             if (key == null) {
+                // no events, try again
+                Thread.yield();
                 continue;
             }
-            Path path = null;
-            synchronized (watchKeys) {
-                path = watchKeys.get(key);
 
-            }
+            Path basePath = basePathFromWatchkey(key);
+
             for (WatchEvent<?> event : key.pollEvents()) {
-                WatchEvent.Kind<?> kind = event.kind();
-                if (kind == StandardWatchEventKinds.OVERFLOW) {
-                    continue;// not registerable
-                }
-
-                WatchEvent<Path> watchEvent = (WatchEvent<Path>) event;
-
-                Path filename = watchEvent.context();
-
-                Path resolvedFile = path.resolve(filename);
-
-                if (recursive && (kind == StandardWatchEventKinds.ENTRY_CREATE)) {
-                    try {
-                        if (Files.isDirectory(resolvedFile, LinkOption.NOFOLLOW_LINKS)) {
-                            registerPathWithSubDirs(resolvedFile);
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                oPattern.ifPresent(pattern -> {
-                    Matcher matcher = pattern.matcher(resolvedFile.toString());
-                    if (matcher.matches()) {
-                        listener.handlePathEvent(resolvedFile, watchEvent.kind());
-                    }
-                });
+                handleEvent(event, basePath);
             }
 
             boolean resetValid = key.reset();
             if (!resetValid) {
-                break;
+                LOGGER.warn("invalid WatchKey while reset. basePath: {}  key: {}", basePath, key);
             }
         }
-        clear();
+    }
 
+    private void handleEvent(WatchEvent<?> event, Path basePath) {
+        WatchEvent.Kind<?> kind = event.kind();
+        if (kind == StandardWatchEventKinds.OVERFLOW) {
+            return;// not registerable
+        }
+
+        WatchEvent<Path> watchEvent = (WatchEvent<Path>) event;
+
+        Path filename = watchEvent.context();
+
+        Path resolvedFile = basePath.resolve(filename);
+
+        if (recursive && (kind == StandardWatchEventKinds.ENTRY_CREATE)) {
+            try {
+                if (Files.isDirectory(resolvedFile, LinkOption.NOFOLLOW_LINKS)) {
+                    registerPathWithSubDirs(resolvedFile);
+                }
+            } catch (IOException e) {
+                LOGGER.error("Errown while register Path With Subdirs", e);
+            }
+        }
+
+        oPattern.ifPresent(pattern -> {
+            Matcher matcher = pattern.matcher(resolvedFile.toString());
+            if (matcher.matches()) {
+                listener.handlePathEvent(resolvedFile, watchEvent.kind());
+            }
+        });
+
+    }
+
+    private Path basePathFromWatchkey(WatchKey key) {
+        synchronized (watchKeys) {
+            return watchKeys.get(key);
+        }
     }
 
     private void registerPathWithSubDirs(final Path baseDirectory) throws IOException {

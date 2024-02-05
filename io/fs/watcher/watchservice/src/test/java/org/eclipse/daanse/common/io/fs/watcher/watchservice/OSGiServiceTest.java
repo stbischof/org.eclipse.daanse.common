@@ -32,6 +32,7 @@ import org.osgi.service.cm.annotations.RequireConfigurationAdmin;
 import org.osgi.service.component.annotations.RequireServiceComponentRuntime;
 import org.osgi.test.common.annotation.InjectBundleContext;
 import org.osgi.test.junit5.context.BundleContextExtension;
+import org.slf4j.LoggerFactory;
 
 @RequireServiceComponentRuntime
 @RequireConfigurationAdmin
@@ -100,6 +101,7 @@ class OSGiServiceTest {
 
         assertThat(listener.getEvents().peek().getKey()).isEqualTo(f1InDir1);
         assertThat(listener.getEvents().poll().getValue()).isEqualTo(StandardWatchEventKinds.ENTRY_CREATE);
+        LoggerFactory.getLogger(OSGiServiceTest.class).warn("FOOOOOOOOOOOOOOOOO");
 
     }
 
