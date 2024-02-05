@@ -44,5 +44,6 @@ header:
     - '**/.project'
     - '**/*.prefs'
     - 'license.templates'
+    - '**/logback-test.xml'
 
   comment: always
