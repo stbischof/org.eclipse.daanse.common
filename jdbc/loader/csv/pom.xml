@@ -30,21 +30,43 @@
       <groupId>org.eclipse.daanse</groupId>
       <artifactId>org.eclipse.daanse.common.jdbc.db.api</artifactId>
       <version>0.0.1-SNAPSHOT</version>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.eclipse.daanse</groupId>
       <artifactId>org.eclipse.daanse.common.jdbc.db.record</artifactId>
       <version>0.0.1-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.daanse</groupId>
+      <artifactId>org.eclipse.daanse.common.jdbc.db.core</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.eclipse.daanse</groupId>
       <artifactId>org.eclipse.daanse.common.io.fs.watcher.api</artifactId>
       <version>0.0.1-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.daanse</groupId>
+      <artifactId>org.eclipse.daanse.common.io.fs.watcher.watchservice</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>de.siegmar</groupId>
       <artifactId>fastcsv</artifactId>
       <version>3.0.0</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>biz.aQute.bnd</groupId>
+      <artifactId>biz.aQute.bndlib</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>
