@@ -23,6 +23,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -282,12 +283,12 @@ public class CsvDataLoader implements FileSystemWatcherListener {
             ps.setObject(index, null);
             return;
         }
-        switch (typeName.toLowerCase()) {
+        switch (typeName.toUpperCase()) {
         case "BOOLEAN": {
             ps.setBoolean(index, field.equals("") ? Boolean.FALSE : Boolean.valueOf(field));
             return;
         }
-        case "LONG": {
+        case "BIGINT": {
             ps.setLong(index, field.equals("") ? 0l : Long.valueOf(field));
             return;
         }
@@ -299,7 +300,7 @@ public class CsvDataLoader implements FileSystemWatcherListener {
             ps.setInt(index, field.equals("") ? 0 : Integer.valueOf(field));
             return;
         }
-        case "NUMERIC": {
+        case "DECIMAL": {
             ps.setDouble(index, field.equals("") ? 0.0 : Double.valueOf(field));
             return;
         }
@@ -311,7 +312,11 @@ public class CsvDataLoader implements FileSystemWatcherListener {
             ps.setTimestamp(index, Timestamp.valueOf(field));
             return;
         }
-        case "STRING": {
+        case "TIME": {
+            ps.setTime(index, Time.valueOf(field));
+            return;
+        }
+        case "VARCHAR": {
             ps.setString(index, field);
             return;
         }
@@ -334,7 +339,7 @@ public class CsvDataLoader implements FileSystemWatcherListener {
 
     private ColumnDataTypeR parseColumnDataType(String stringType) {
         int indexStart = stringType.indexOf("(");
-        int indexEnd = stringType.indexOf("(");
+        int indexEnd = stringType.indexOf(")");
 
         String type = null;
         String detail = null;

@@ -28,10 +28,11 @@ import org.eclipse.daanse.common.jdbc.db.record.DatabaseInfoR;
 import org.eclipse.daanse.common.jdbc.db.record.IdentifierInfoR;
 import org.eclipse.daanse.common.jdbc.db.record.MetaInfoR;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ServiceScope;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Component(service = DatabaseService.class)
+@Component(service = DatabaseService.class, scope = ServiceScope.SINGLETON)
 public class DatabaseServiceImpl implements DatabaseService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DatabaseServiceImpl.class);

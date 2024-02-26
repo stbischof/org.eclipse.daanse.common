@@ -24,7 +24,7 @@ public class Constants {
 
     public static final String PROPERETY_CSV_NULL_VALUE = "nullValue";
     public static final String PROPERETY_CSV_QUOTE_CHARACHTER = "quoteCharacter";
-    public static final String PROPERETY_CSV_FIELD_DEPARATOPR = "fieldSeparator";
+    public static final String PROPERETY_CSV_FIELD_SEPARATOR = "fieldSeparator";
     public static final String PROPERETY_CSV_ENCODING = "encoding";
     public static final String PROPERETY_CSV_SKIP_EMPTY_LINES = "skipEmptyLines";
     public static final String PROPERETY_CSV_COMMENT_CHARACHTER = "commentCharacter";
