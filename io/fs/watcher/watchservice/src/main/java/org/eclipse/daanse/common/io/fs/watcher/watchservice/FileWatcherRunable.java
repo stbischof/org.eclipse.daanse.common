@@ -172,28 +172,19 @@ class FileWatcherRunable implements Runnable {
             while (!stoped.get()) {
                 WatchKey key = watchService.take();
 
-                if (key == null) {
-                    LOGGER.debug("the taken watchKey is null");
-                    // no events, try again
+                rwl.readLock().lock();
+                WatchKeyConfig config = watchKeysToConfig.get(key);
+                rwl.readLock().unlock();
+
+                if (config == null) {
+                    LOGGER.warn("no WatchKeyConfig for this EventKey {}", key);
                     continue;
                 }
 
                 if (LOGGER.isDebugEnabled()) {
                     LOGGER.debug("new WatchKey: {}  ; with watchable {}", key, key.watchable());
                 }
-                for (WatchEvent<?> event : key.pollEvents()) {
-
-                    if (LOGGER.isDebugEnabled()) {
-                        LOGGER.debug("new WatchEvent to handleEvent: {} , kind: {}, context: {} , count: {}", event,
-                                event.kind(), event.context(), event.count());
-                    }
-                    rwl.readLock().lock();
-                    WatchKeyConfig config = watchKeysToConfig.get(key);
-                    rwl.readLock().unlock();
-
-                    handleEvent(event, config);
-
-                }
+                handlePolls(key, config);
 
                 boolean resetValid = key.reset();
                 if (!resetValid) {
@@ -208,6 +199,16 @@ class FileWatcherRunable implements Runnable {
             shutdown();
             Thread.currentThread().interrupt();
             LOGGER.error("watcheService::take is interrupted for unknown reason", e);
+        }
+    }
+
+    private void handlePolls(WatchKey key, WatchKeyConfig config) {
+        for (WatchEvent<?> event : key.pollEvents()) {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("new WatchEvent to handleEvent: {} , kind: {}, context: {} , count: {}", event,
+                        event.kind(), event.context(), event.count());
+            }
+            handleEvent(event, config);
         }
     }
 
