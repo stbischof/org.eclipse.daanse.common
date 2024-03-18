@@ -42,12 +42,11 @@ public class H2DataSource implements ConnectionPoolDataSource, DataSource, XADat
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(H2DataSource.class);
 
-    private JdbcDataSource ds;
+    private final JdbcDataSource ds = new JdbcDataSource();
 
     @Activate
     public H2DataSource(H2BaseConfig config, Map<String, Object> map) {
 
-        this.ds = new JdbcDataSource();
         String url = UrlBuilder.buildUrl(config, map);
 
         LOGGER.debug("composed url: {}", url);
@@ -72,7 +71,6 @@ public class H2DataSource implements ConnectionPoolDataSource, DataSource, XADat
 
     @Deactivate
     public void deactivate() {
-        ds = null;
         LOGGER.debug("deactivated");
     }
 

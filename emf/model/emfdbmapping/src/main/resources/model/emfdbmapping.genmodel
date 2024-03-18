@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*********************************************************************
+* Copyright (c) 2024 Contributors to the Eclipse Foundation.
+*
+* This program and the accompanying materials are made
+* available under the terms of the Eclipse Public License 2.0
+* which is available at https://www.eclipse.org/legal/epl-2.0/
+*
+* SPDX-License-Identifier: EPL-2.0
+**********************************************************************/
+-->
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2024 Contributors to the Eclipse Foundation.&#xA;&#xA;This program and the accompanying materials are made&#xA;available under the terms of the Eclipse Public License 2.0&#xA;which is available at https://www.eclipse.org/legal/epl-2.0/&#xA;&#xA;SPDX-License-Identifier: EPL-2.0&#xA;&#xA;Contributors:&#xA;  Eclipse Jakarta JPA- ORM base model &#xA;  Stefan Bischof - initial API and implementation" modelDirectory="/org.eclipse.daanse.common.emf.model.emfdbmapping/src"
+    modelPluginID="org.eclipse.daanse.common.emf.model.emfdbmapping" modelName="emfdbmapping"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    containmentProxies="true" complianceLevel="11.0" copyrightFields="false" operationReflection="true"
+    importOrganizing="true" oSGiCompatible="true">
+  <foreignModel>emfdbmapping.ecore</foreignModel>
+  <genPackages prefix="EmfDbMapping" basePackage="org.eclipse.daanse.common.emf.model"
+      resource="XMI" disposableProviderFactory="true" literalsInterface="false" ecorePackage="emfdbmapping.ecore#/"
+      loadInitializationFileExtension=".emfdbmapping">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="emfdbmapping.ecore#//AccessType">
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//AccessType/PROPERTY"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//AccessType/FIELD"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="emfdbmapping.ecore#//ConstraintMode">
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//ConstraintMode/CONSTRAINT"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//ConstraintMode/NOCONSTRAINT"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//ConstraintMode/PROVIDERDEFAULT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="emfdbmapping.ecore#//DiscriminatorType">
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//DiscriminatorType/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//DiscriminatorType/CHAR"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//DiscriminatorType/INTEGER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="emfdbmapping.ecore#//EnumType">
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//EnumType/ORDINAL"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//EnumType/STRING"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="emfdbmapping.ecore#//FetchType">
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//FetchType/LAZY"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//FetchType/EAGER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="emfdbmapping.ecore#//GenerationType">
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//GenerationType/TABLE"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//GenerationType/SEQUENCE"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//GenerationType/IDENTITY"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//GenerationType/UUID"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//GenerationType/AUTO"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="emfdbmapping.ecore#//InheritanceType">
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//InheritanceType/SINGLETABLE"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//InheritanceType/JOINED"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//InheritanceType/TABLEPERCLASS"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="emfdbmapping.ecore#//LockModeType">
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//LockModeType/READ"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//LockModeType/WRITE"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//LockModeType/OPTIMISTIC"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//LockModeType/OPTIMISTICFORCEINCREMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//LockModeType/PESSIMISTICREAD"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//LockModeType/PESSIMISTICWRITE"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//LockModeType/PESSIMISTICFORCEINCREMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//LockModeType/NONE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="emfdbmapping.ecore#//ParameterMode">
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//ParameterMode/IN"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//ParameterMode/INOUT"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//ParameterMode/OUT"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//ParameterMode/REFCURSOR"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="emfdbmapping.ecore#//TemporalType">
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//TemporalType/DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//TemporalType/TIME"/>
+      <genEnumLiterals ecoreEnumLiteral="emfdbmapping.ecore#//TemporalType/TIMESTAMP"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="emfdbmapping.ecore#//AccessTypeObject"/>
+    <genDataTypes ecoreDataType="emfdbmapping.ecore#//ConstraintModeObject"/>
+    <genDataTypes ecoreDataType="emfdbmapping.ecore#//DiscriminatorTypeObject"/>
+    <genDataTypes ecoreDataType="emfdbmapping.ecore#//DiscriminatorValue"/>
+    <genDataTypes ecoreDataType="emfdbmapping.ecore#//Enumerated"/>
+    <genDataTypes ecoreDataType="emfdbmapping.ecore#//EnumTypeObject"/>
+    <genDataTypes ecoreDataType="emfdbmapping.ecore#//FetchTypeObject"/>
+    <genDataTypes ecoreDataType="emfdbmapping.ecore#//GenerationTypeObject"/>
+    <genDataTypes ecoreDataType="emfdbmapping.ecore#//InheritanceTypeObject"/>
+    <genDataTypes ecoreDataType="emfdbmapping.ecore#//LockModeTypeObject"/>
+    <genDataTypes ecoreDataType="emfdbmapping.ecore#//OrderBy"/>
+    <genDataTypes ecoreDataType="emfdbmapping.ecore#//ParameterModeObject"/>
+    <genDataTypes ecoreDataType="emfdbmapping.ecore#//Temporal"/>
+    <genDataTypes ecoreDataType="emfdbmapping.ecore#//TemporalTypeObject"/>
+    <genDataTypes ecoreDataType="emfdbmapping.ecore#//VersionType"/>
+    <genClasses ecoreClass="emfdbmapping.ecore#//AssociationOverride">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//AssociationOverride/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//AssociationOverride/joinColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//AssociationOverride/foreignKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//AssociationOverride/joinTable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//AssociationOverride/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//AttributeOverride">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//AttributeOverride/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//AttributeOverride/column"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//AttributeOverride/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//Attributes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Attributes/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Attributes/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Attributes/embeddedId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Attributes/basic"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Attributes/version"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Attributes/manyToOne"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Attributes/oneToMany"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Attributes/oneToOne"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Attributes/manyToMany"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Attributes/elementCollection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Attributes/embedded"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Attributes/transient"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//Basic">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Basic/column"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Basic/lob"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Basic/temporal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Basic/enumerated"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Basic/convert"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Basic/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Basic/fetch"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Basic/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Basic/optional"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//CascadeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//CascadeType/cascadeAll"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//CascadeType/cascadePersist"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//CascadeType/cascadeMerge"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//CascadeType/cascadeRemove"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//CascadeType/cascadeRefresh"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//CascadeType/cascadeDetach"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//CollectionTable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//CollectionTable/joinColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//CollectionTable/foreignKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//CollectionTable/uniqueConstraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//CollectionTable/index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//CollectionTable/catalog"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//CollectionTable/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//CollectionTable/schema"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//Column">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Column/columnDefinition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Column/insertable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Column/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Column/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Column/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Column/precision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Column/scale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Column/table"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Column/unique"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Column/updatable"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//ColumnResult">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ColumnResult/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ColumnResult/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//ConstructorResult">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ConstructorResult/column"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ConstructorResult/targetClass"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//Convert">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Convert/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Convert/attributeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Convert/converter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Convert/disableConversion"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//Converter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Converter/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Converter/autoApply"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Converter/class"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//DiscriminatorColumn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//DiscriminatorColumn/columnDefinition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//DiscriminatorColumn/discriminatorType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//DiscriminatorColumn/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//DiscriminatorColumn/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference emfdbmapping.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference emfdbmapping.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//DocumentRoot/entityMappings"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//ElementCollection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ElementCollection/orderBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ElementCollection/orderColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ElementCollection/mapKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ElementCollection/mapKeyClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ElementCollection/mapKeyTemporal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ElementCollection/mapKeyEnumerated"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ElementCollection/mapKeyAttributeOverride"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ElementCollection/mapKeyConvert"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ElementCollection/mapKeyColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ElementCollection/mapKeyJoinColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ElementCollection/mapKeyForeignKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ElementCollection/column"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ElementCollection/temporal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ElementCollection/enumerated"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ElementCollection/lob"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ElementCollection/attributeOverride"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ElementCollection/associationOverride"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ElementCollection/convert"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ElementCollection/collectionTable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ElementCollection/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ElementCollection/fetch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ElementCollection/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ElementCollection/targetClass"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//Embeddable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Embeddable/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Embeddable/attributes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Embeddable/access"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Embeddable/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Embeddable/metadataComplete"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//EmbeddableAttributes">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EmbeddableAttributes/basic"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EmbeddableAttributes/manyToOne"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EmbeddableAttributes/oneToMany"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EmbeddableAttributes/oneToOne"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EmbeddableAttributes/manyToMany"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EmbeddableAttributes/elementCollection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EmbeddableAttributes/embedded"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EmbeddableAttributes/transient"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//Embedded">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Embedded/attributeOverride"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Embedded/associationOverride"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Embedded/convert"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Embedded/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Embedded/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//EmbeddedId">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EmbeddedId/attributeOverride"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//EmbeddedId/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//EmbeddedId/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//EmptyType"/>
+    <genClasses ecoreClass="emfdbmapping.ecore#//Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Entity/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/table"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/secondaryTable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/primaryKeyJoinColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/primaryKeyForeignKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/idClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/inheritance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Entity/discriminatorValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/discriminatorColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/sequenceGenerator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/tableGenerator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/namedQuery"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/namedNativeQuery"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/namedStoredProcedureQuery"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/sqlResultSetMapping"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/excludeDefaultListeners"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/excludeSuperclassListeners"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/entityListeners"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/prePersist"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/postPersist"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/preRemove"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/postRemove"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/preUpdate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/postUpdate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/postLoad"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/attributeOverride"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/associationOverride"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/convert"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/namedEntityGraph"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/attributes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Entity/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Entity/cacheable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Entity/metadataComplete"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Entity/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Entity/class"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//EntityListener">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//EntityListener/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityListener/prePersist"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityListener/postPersist"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityListener/preRemove"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityListener/postRemove"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityListener/preUpdate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityListener/postUpdate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityListener/postLoad"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityListener/class"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//EntityListeners">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityListeners/entityListener"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//EntityMappingsType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//EntityMappingsType/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityMappingsType/persistenceUnitMetadata"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//EntityMappingsType/package"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//EntityMappingsType/schema"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//EntityMappingsType/catalog"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//EntityMappingsType/access"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityMappingsType/sequenceGenerator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityMappingsType/tableGenerator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityMappingsType/namedQuery"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityMappingsType/namedNativeQuery"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityMappingsType/namedStoredProcedureQuery"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityMappingsType/sqlResultSetMapping"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityMappingsType/mappedSuperclass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityMappingsType/entity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityMappingsType/embeddable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityMappingsType/converter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//EntityMappingsType/version"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//EntityResult">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//EntityResult/fieldResult"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//EntityResult/discriminatorColumn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//EntityResult/entityClass"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//FieldResult">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//FieldResult/column"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//FieldResult/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//ForeignKey">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ForeignKey/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ForeignKey/constraintMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ForeignKey/foreignKeyDefinition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ForeignKey/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//GeneratedValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//GeneratedValue/generator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//GeneratedValue/strategy"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//Id">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Id/column"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Id/generatedValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Id/temporal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Id/tableGenerator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Id/sequenceGenerator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Id/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Id/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//IdClass">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//IdClass/class"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//Index">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Index/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Index/columnList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Index/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Index/unique"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//Inheritance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Inheritance/strategy"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//JoinColumn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//JoinColumn/columnDefinition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//JoinColumn/insertable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//JoinColumn/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//JoinColumn/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//JoinColumn/referencedColumnName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//JoinColumn/table"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//JoinColumn/unique"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//JoinColumn/updatable"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//JoinTable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//JoinTable/joinColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//JoinTable/foreignKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//JoinTable/inverseJoinColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//JoinTable/inverseForeignKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//JoinTable/uniqueConstraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//JoinTable/index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//JoinTable/catalog"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//JoinTable/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//JoinTable/schema"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//Lob"/>
+    <genClasses ecoreClass="emfdbmapping.ecore#//ManyToMany">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ManyToMany/orderBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ManyToMany/orderColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ManyToMany/mapKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ManyToMany/mapKeyClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ManyToMany/mapKeyTemporal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ManyToMany/mapKeyEnumerated"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ManyToMany/mapKeyAttributeOverride"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ManyToMany/mapKeyConvert"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ManyToMany/mapKeyColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ManyToMany/mapKeyJoinColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ManyToMany/mapKeyForeignKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ManyToMany/joinTable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ManyToMany/cascade"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ManyToMany/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ManyToMany/fetch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ManyToMany/mappedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ManyToMany/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ManyToMany/targetEntity"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//ManyToOne">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ManyToOne/joinColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ManyToOne/foreignKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ManyToOne/joinTable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//ManyToOne/cascade"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ManyToOne/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ManyToOne/fetch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ManyToOne/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ManyToOne/mapsId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ManyToOne/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ManyToOne/optional"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//ManyToOne/targetEntity"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//MapKey">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKey/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//MapKeyClass">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//MapKeyClass/class"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//MapKeyColumn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyColumn/columnDefinition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyColumn/insertable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyColumn/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyColumn/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyColumn/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyColumn/precision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyColumn/scale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyColumn/table"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyColumn/unique"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyColumn/updatable"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//MapKeyJoinColumn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyJoinColumn/columnDefinition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyJoinColumn/insertable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyJoinColumn/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyJoinColumn/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyJoinColumn/referencedColumnName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyJoinColumn/table"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyJoinColumn/unique"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MapKeyJoinColumn/updatable"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//MappedSuperclass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MappedSuperclass/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//MappedSuperclass/idClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//MappedSuperclass/excludeDefaultListeners"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//MappedSuperclass/excludeSuperclassListeners"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//MappedSuperclass/entityListeners"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//MappedSuperclass/prePersist"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//MappedSuperclass/postPersist"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//MappedSuperclass/preRemove"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//MappedSuperclass/postRemove"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//MappedSuperclass/preUpdate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//MappedSuperclass/postUpdate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//MappedSuperclass/postLoad"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//MappedSuperclass/attributes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MappedSuperclass/access"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//MappedSuperclass/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//MappedSuperclass/metadataComplete"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//NamedAttributeNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedAttributeNode/keySubgraph"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedAttributeNode/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedAttributeNode/subgraph"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//NamedEntityGraph">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//NamedEntityGraph/namedAttributeNode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//NamedEntityGraph/subgraph"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//NamedEntityGraph/subclassSubgraph"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedEntityGraph/includeAllAttributes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedEntityGraph/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//NamedNativeQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedNativeQuery/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedNativeQuery/query"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//NamedNativeQuery/hint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedNativeQuery/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedNativeQuery/resultClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedNativeQuery/resultSetMapping"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//NamedQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedQuery/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedQuery/query"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedQuery/lockMode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//NamedQuery/hint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedQuery/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//NamedStoredProcedureQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedStoredProcedureQuery/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//NamedStoredProcedureQuery/parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedStoredProcedureQuery/resultClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedStoredProcedureQuery/resultSetMapping"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//NamedStoredProcedureQuery/hint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedStoredProcedureQuery/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedStoredProcedureQuery/procedureName"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//NamedSubgraph">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//NamedSubgraph/namedAttributeNode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedSubgraph/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//NamedSubgraph/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//OneToMany">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToMany/orderBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToMany/orderColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToMany/mapKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToMany/mapKeyClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToMany/mapKeyTemporal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToMany/mapKeyEnumerated"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToMany/mapKeyAttributeOverride"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToMany/mapKeyConvert"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToMany/mapKeyColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToMany/mapKeyJoinColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToMany/mapKeyForeignKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToMany/joinTable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToMany/joinColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToMany/foreignKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToMany/cascade"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToMany/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToMany/fetch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToMany/mappedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToMany/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToMany/orphanRemoval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToMany/targetEntity"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//OneToOne">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToOne/primaryKeyJoinColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToOne/primaryKeyForeignKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToOne/joinColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToOne/foreignKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToOne/joinTable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//OneToOne/cascade"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToOne/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToOne/fetch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToOne/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToOne/mappedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToOne/mapsId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToOne/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToOne/optional"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToOne/orphanRemoval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OneToOne/targetEntity"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//OrderColumn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OrderColumn/columnDefinition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OrderColumn/insertable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OrderColumn/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OrderColumn/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//OrderColumn/updatable"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//PersistenceUnitDefaults">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PersistenceUnitDefaults/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PersistenceUnitDefaults/schema"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PersistenceUnitDefaults/catalog"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//PersistenceUnitDefaults/delimitedIdentifiers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PersistenceUnitDefaults/access"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//PersistenceUnitDefaults/cascadePersist"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//PersistenceUnitDefaults/entityListeners"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//PersistenceUnitMetadata">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PersistenceUnitMetadata/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//PersistenceUnitMetadata/xmlMappingMetadataComplete"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//PersistenceUnitMetadata/persistenceUnitDefaults"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//PostLoad">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PostLoad/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PostLoad/methodName"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//PostPersist">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PostPersist/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PostPersist/methodName"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//PostRemove">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PostRemove/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PostRemove/methodName"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//PostUpdate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PostUpdate/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PostUpdate/methodName"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//PrePersist">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PrePersist/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PrePersist/methodName"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//PreRemove">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PreRemove/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PreRemove/methodName"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//PreUpdate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PreUpdate/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PreUpdate/methodName"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//PrimaryKeyJoinColumn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PrimaryKeyJoinColumn/columnDefinition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PrimaryKeyJoinColumn/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//PrimaryKeyJoinColumn/referencedColumnName"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//QueryHint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//QueryHint/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//QueryHint/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//QueryHint/value"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//SecondaryTable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//SecondaryTable/primaryKeyJoinColumn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//SecondaryTable/primaryKeyForeignKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//SecondaryTable/uniqueConstraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//SecondaryTable/index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//SecondaryTable/catalog"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//SecondaryTable/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//SecondaryTable/schema"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//SequenceGenerator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//SequenceGenerator/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//SequenceGenerator/allocationSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//SequenceGenerator/catalog"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//SequenceGenerator/initialValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//SequenceGenerator/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//SequenceGenerator/schema"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//SequenceGenerator/sequenceName"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//SqlResultSetMapping">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//SqlResultSetMapping/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//SqlResultSetMapping/entityResult"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//SqlResultSetMapping/constructorResult"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//SqlResultSetMapping/columnResult"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//SqlResultSetMapping/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//StoredProcedureParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//StoredProcedureParameter/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//StoredProcedureParameter/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//StoredProcedureParameter/mode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//StoredProcedureParameter/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//Table">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Table/uniqueConstraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Table/index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Table/catalog"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Table/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Table/schema"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//TableGenerator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//TableGenerator/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//TableGenerator/uniqueConstraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//TableGenerator/index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//TableGenerator/allocationSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//TableGenerator/catalog"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//TableGenerator/initialValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//TableGenerator/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//TableGenerator/pkColumnName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//TableGenerator/pkColumnValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//TableGenerator/schema"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//TableGenerator/table"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//TableGenerator/valueColumnName"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//Transient">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Transient/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//UniqueConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//UniqueConstraint/columnName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//UniqueConstraint/name"/>
+    </genClasses>
+    <genClasses ecoreClass="emfdbmapping.ecore#//Version">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfdbmapping.ecore#//Version/column"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Version/temporal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Version/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfdbmapping.ecore#//Version/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

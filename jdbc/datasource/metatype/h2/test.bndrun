@@ -59,7 +59,7 @@
 	junit-platform-commons;version='[1.10.2,1.10.3)',\
 	junit-platform-engine;version='[1.10.2,1.10.3)',\
 	junit-platform-launcher;version='[1.10.2,1.10.3)',\
-	net.bytebuddy.byte-buddy;version='[1.14.11,1.14.12)',\
+	net.bytebuddy.byte-buddy;version='[1.14.12,1.14.13)',\
 	org.apache.felix.configadmin;version='[1.9.26,1.9.27)',\
 	org.apache.felix.scr;version='[2.2.10,2.2.11)',\
 	org.eclipse.daanse.common.jdbc.datasource.metatype.h2;version='[0.0.1,0.0.2)',\

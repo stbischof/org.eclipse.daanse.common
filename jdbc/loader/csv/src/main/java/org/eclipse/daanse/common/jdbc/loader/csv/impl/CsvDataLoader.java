@@ -26,7 +26,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
 import java.sql.Timestamp;
-import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -39,7 +38,6 @@ import org.eclipse.daanse.common.io.fs.watcher.api.propertytypes.FileSystemWatch
 import org.eclipse.daanse.common.jdbc.db.api.DatabaseService;
 import org.eclipse.daanse.common.jdbc.db.api.SqlStatementGenerator;
 import org.eclipse.daanse.common.jdbc.db.api.meta.MetaInfo;
-import org.eclipse.daanse.common.jdbc.db.api.meta.TypeInfo;
 import org.eclipse.daanse.common.jdbc.db.api.sql.ColumnDefinition;
 import org.eclipse.daanse.common.jdbc.db.api.sql.ColumnMetaData;
 import org.eclipse.daanse.common.jdbc.db.api.sql.ColumnReference;
@@ -71,7 +69,7 @@ import de.siegmar.fastcsv.reader.NamedCsvRecord;
 
 @Designate(ocd = CsvDataLoaderConfig.class, factory = true)
 @FileSystemWatcherListenerProperties(kinds = EventKind.ENTRY_MODIFY, pattern = ".*.csv", recursive = true)
-@Component(scope = ServiceScope.SINGLETON, service = FileSystemWatcherListener.class, name = Constants.PID_LOADER_FILEWATCHER)
+@Component(scope = ServiceScope.SINGLETON, service = FileSystemWatcherListener.class, configurationPid = Constants.PID_LOADER_FILEWATCHER)
 public class CsvDataLoader implements FileSystemWatcherListener {
 
     private static final String EXCEPTION_WHILE_WRITING_DATA = "Exception while writing Data";
@@ -86,6 +84,7 @@ public class CsvDataLoader implements FileSystemWatcherListener {
 
     @Reference
     private DataSource dataSource;
+
     @Reference
     DatabaseService databaseService;
 
@@ -365,11 +364,9 @@ public class CsvDataLoader implements FileSystemWatcherListener {
 
         String[] det = detail == null ? new String[] {} : detail.split("\\.");
 
+        JDBCType jdbcType = JDBCType.valueOf(sType);
 
-        JDBCType jdbcType=JDBCType.valueOf(sType);
-
-
-        if(jdbcType==null) {
+        if (jdbcType == null) {
             jdbcType = JDBCType.VARCHAR;
         }
 
