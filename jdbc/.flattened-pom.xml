@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*********************************************************************
+* Copyright (c) 2024 Contributors to the Eclipse Foundation.
+*
+* This program and the accompanying materials are made
+* available under the terms of the Eclipse Public License 2.0
+* which is available at https://www.eclipse.org/legal/epl-2.0/
+*
+* SPDX-License-Identifier: EPL-2.0
+**********************************************************************/
+-->
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.eclipse.daanse</groupId>
+  <artifactId>org.eclipse.daanse.common.jdbc</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <url>https://www.daanse.org/org.eclipse.daanse.common.jdbc</url>
+  <organization>
+    <name>Eclipse Foundation - Project daanse</name>
+    <url>https://www.daanse.org</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>EPL-2.0</name>
+      <url>https://opensource.org/licenses/EPL-2.0</url>
+      <distribution>repo</distribution>
+      <comments>Eclipse Public License, Version 2.0</comments>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>stbischof</id>
+      <name>Stefan Bischof</name>
+      <email>stbischof@bipolis.org</email>
+      <url>https://www.bipolis.org</url>
+      <organization>bipolis</organization>
+      <organizationUrl>https://www.bipolis.org</organizationUrl>
+      <roles>
+        <role>project-lead</role>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:https://github.com/eclipse-daanse/org.eclipse.daanse.common.git/org.eclipse.daanse.common.jdbc</connection>
+    <developerConnection>scm:git:git@github.com:eclipse-daanse/org.eclipse.daanse.common.git/org.eclipse.daanse.common.jdbc</developerConnection>
+    <url>https://github.com/eclipse-daanse/org.eclipse.daanse.common/org.eclipse.daanse.common.jdbc</url>
+  </scm>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/eclipse-daanse/org.eclipse.daanse.common/issues</url>
+  </issueManagement>
+  <repositories>
+    <repository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>ossrh</id>
+      <name>Sonatype Nexus Snapshots</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
+    <repository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>apache-snapshots</id>
+      <name>Apache Snapshots</name>
+      <url>https://repository.apache.org/snapshots/</url>
+    </repository>
+  </repositories>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>biz.aQute.bnd</groupId>
+        <artifactId>bnd-maven-plugin</artifactId>
+        <version>7.0.0</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
