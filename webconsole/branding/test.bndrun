@@ -47,7 +47,10 @@
 
 -runrequires: \
 	bnd.identity;id='${project.artifactId}-tests',\
-	bnd.identity;id='${project.artifactId}'
+	bnd.identity;id='${project.artifactId}',\
+	osgi.identity;filter:='(&(osgi.identity=org.apache.felix.configadmin)(version>=1.9.26))',\
+	osgi.identity;filter:='(&(osgi.identity=org.apache.felix.metatype)(version>=1.2.4))',\
+	bnd.identity;id='org.apache.commons.commons-fileupload'
 
 # -runbundles is calculated by the bnd-resolver-maven-plugin
 -runbundles: \
@@ -58,12 +61,28 @@
 	junit-platform-engine;version='[1.10.2,1.10.3)',\
 	junit-platform-launcher;version='[1.10.2,1.10.3)',\
 	net.bytebuddy.byte-buddy;version='[1.14.12,1.14.13)',\
-	org.apache.felix.http.jetty12;version='[1.0.2,1.0.3)',\
+	org.apache.commons.commons-fileupload;version='[1.5.0,1.5.1)',\
+	org.apache.commons.commons-io;version='[2.11.0,2.11.1)',\
+	org.apache.felix.configadmin;version='[1.9.26,1.9.27)',\
+	org.apache.felix.http.jetty12.light;version='[1.0.6,1.0.7)',\
 	org.apache.felix.http.servlet-api;version='[3.0.0,3.0.1)',\
 	org.apache.felix.inventory;version='[2.0.0,2.0.1)',\
-	org.apache.felix.webconsole;version='[5.0.0,5.0.1)',\
+	org.apache.felix.metatype;version='[1.2.4,1.2.5)',\
+	org.apache.felix.webconsole;version='[5.0.2,5.0.3)',\
 	org.eclipse.daanse.common.webconsole.branding;version='[0.0.1,0.0.2)',\
 	org.eclipse.daanse.common.webconsole.branding-tests;version='[0.0.1,0.0.2)',\
+	org.eclipse.jetty.alpn.server;version='[12.0.8,12.0.9)',\
+	org.eclipse.jetty.ee10.servlet;version='[12.0.8,12.0.9)',\
+	org.eclipse.jetty.http;version='[12.0.9,12.0.10)',\
+	org.eclipse.jetty.http2.common;version='[12.0.8,12.0.9)',\
+	org.eclipse.jetty.http2.hpack;version='[12.0.8,12.0.9)',\
+	org.eclipse.jetty.http2.server;version='[12.0.8,12.0.9)',\
+	org.eclipse.jetty.io;version='[12.0.9,12.0.10)',\
+	org.eclipse.jetty.jmx;version='[12.0.8,12.0.9)',\
+	org.eclipse.jetty.security;version='[12.0.8,12.0.9)',\
+	org.eclipse.jetty.server;version='[12.0.9,12.0.10)',\
+	org.eclipse.jetty.session;version='[12.0.8,12.0.9)',\
+	org.eclipse.jetty.util;version='[12.0.9,12.0.10)',\
 	org.opentest4j;version='[1.3.0,1.3.1)',\
 	org.osgi.service.log;version='[1.4.0,1.4.1)',\
 	org.osgi.service.servlet;version='[2.0.0,2.0.1)',\

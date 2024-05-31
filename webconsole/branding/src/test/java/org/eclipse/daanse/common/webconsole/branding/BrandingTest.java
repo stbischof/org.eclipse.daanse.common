@@ -34,7 +34,6 @@ class BrandingTest {
     }
 
     @Test
-
     void testSVG() throws Exception {
 
         try (HttpClient httpClient = HttpClient.newHttpClient()) {
